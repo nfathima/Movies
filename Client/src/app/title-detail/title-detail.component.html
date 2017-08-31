@@ -1,0 +1,71 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" defer></script>
+<script src="../JavaScript/movieposter.js" defer></script>
+
+<!--Navigation bar-->
+<div class="navbar">
+  <ul>
+    <li><a [routerLink]="['/Title']" class="active" (click)="home()" >Home</a></li>
+    <li *ngIf="access===true"><a [routerLink]="['/modify-Title']" >Edit Titles</a></li>
+    <li style="float:right"><a [routerLink]="['/login']">SignOut</a></li>
+  </ul>
+
+</div>
+
+
+<hr>
+<body>
+<div>
+  <table class="table">
+    <br>
+    <tr><h2>{{title.name}} ({{title.year}}) - {{title.genre}} {{title.type}}</h2></tr>
+    <hr>
+    <tr><span>Title Id:</span> {{title.titleId}}</tr>
+    <tr><span>IMDB Ratings:</span> {{title.imdbRatings}}</tr>
+    <tr><span>IMDB Votes:</span> {{title.imdbVotes}}</tr>
+    <tr><span>Director:</span>{{title.director}}</tr>
+    <tr><span>Actors:</span>{{title.actors}}</tr>
+
+
+    <tr><span>Plot:</span></tr>
+    <tr>{{title.plot}}</tr>
+
+  </table>
+  <form name="title-addform" #userForm1="ngForm">
+      <div class="form-group">
+      <input type="text" required class="form-control" #userName="ngModel" required [(ngModel)]="comments.userName" name="userName" id="userName" placeholder="Enter User Name" >
+      </div>
+  <div class="form-group">
+    <input type="number" required class="form-control" #ratings="ngModel" [(ngModel)]="comments.ratings" name="ratings" id="ratings" placeholder="Enter Ratings" >
+  </div>
+
+  <div *ngIf="(ratings.dirty || ratings.touched) && (ratings.value<1 || ratings.value>5)" class="error">
+    <p>Ratings should be between 1 and 5</p>
+  </div>
+      <div class="comment">
+    <textarea class="form-control" #comment="ngModel" required [(ngModel)]="comments.comments" name="comment" id="comment" rows="2" type="text" placeholder="Enter Comments here"></textarea>
+      </div>
+  </form>
+
+    <table class="table">
+
+      <tr><button type="button" class="btn btn-primary" (click)="addRatcom()" [disabled]="!userForm1.valid"  >Send</button></tr>
+      <br>
+
+      <tr><button type="button" class="btn btn-primary" (click)="displayavgRat()"> Other Users Ratings and Comments</button></tr>
+    <br>
+    <div  *ngIf="display=='ratcom'">
+    <tr><span><strong> Average User Rating: </strong></span>{{avgRatings}}</tr>
+      <br>
+    <tr><strong> User Comments: </strong></tr>
+      <div *ngFor="let c of comments">
+        <tr><i><b>{{c.userName}} says:</b></i></tr>
+        <tr><i>Rating: {{c.ratings}}</i></tr>
+        <tr bgcolor="#fafad2">{{c.comments}}</tr>
+        <br>
+      </div>
+    </div>
+  </table>
+</div>
+</body>

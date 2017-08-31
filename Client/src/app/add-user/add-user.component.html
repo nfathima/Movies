@@ -1,0 +1,64 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<div class="container">
+  <div class="col-md-6">
+    <div id="logbox1">
+      <form id="signup" name="user-form" (submit)="addUser()" #userForm="ngForm">
+        <h1>Create An Account</h1>
+        <input name="userName" #userUserName="ngModel" required minlength="4" type="text" [(ngModel)]="user.userName" placeholder="What's your username?" autofocus="autofocus" id="userName" class="input pass"/>
+        <div *ngIf="userUserName.errors && (userUserName.dirty || userUserName.touched)" class="error">
+          <p [hidden]="!userUserName.errors.required">User Name is required</p>
+          <p [hidden]="!userUserName.errors.minlength">User Name must be of 4 or more chars</p>
+        </div>
+        <input name="password" #userPassword="ngModel" required="required" type="password" [(ngModel)]="user.password" placeholder="Choose a password" autofocus="autofocus" id="password" class="input pass"/>
+        <div *ngIf="userPassword.errors && (userPassword.dirty || userPassword.touched)" class="error">
+          <p [hidden]="!userPassword.errors.required">Password is required</p>
+        </div>
+
+        <input name="confirmPassword" required="required" #userRepeatPassword="ngModel" type="password" [(ngModel)]="user.repeatPassword" placeholder="Confirm password" class="input pass"/>
+        <div *ngIf="userRepeatPassword.errors && (userRepeatPassword.dirty || userRepeatPassword.touched)" class="error">
+          <p [hidden]="!userRepeatPassword.errors.required">Please confirm your password</p>
+        </div>
+        <div *ngIf="userRepeatPassword.dirty || userRepeatPassword.touched" class="error">
+          <p [hidden]="userPassword.value==userRepeatPassword.value">Passwords don't match!</p>
+        </div>
+        <input type="submit" value="Sign up" [disabled]="!userForm.valid" class="inputButton"/>
+        <div *ngIf="errorval==='adderror'">
+          <div class="card">
+            <div class="card-block">
+              User Name already exists! Try another one.
+            </div>
+          </div>
+        </div>
+
+        <div *ngIf="errorval==='addsuccess'">
+          <div class="card">
+            <div class="card-block">
+              Registration Successful. Login to continue.
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+
+  <!--col-md-6-->
+
+  <div class="col-md-6">
+    <div id="logbox2">
+      <form id="signin" name="user-form1" (submit)="getUser()" #userForm1="ngForm">
+        <h1>Account Login</h1>
+        <input name="userName1" required="required" #userName1="ngModel"  [(ngModel)]="login.userName" type="text" placeholder="enter your username" class="input pass"/>
+        <input name="Password1" type="password" #Password1="ngModel"  [(ngModel)]="login.password" required="required" placeholder="enter your password" class="input pass"/>
+        <input type="submit" value="Sign in" class="inputButton"/>
+        <div *ngIf="errorval==='geterror'">
+          <div class="card">
+            <div class="card-block">
+            User name or password incorrect. Try again!
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

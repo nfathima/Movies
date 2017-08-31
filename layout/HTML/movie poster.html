@@ -1,0 +1,707 @@
+<head>
+    <title>NetFlix</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../css/movieposter.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" defer></script>
+<script src="../JavaScript/movieposter.js" defer></script>
+
+<!--Navigation bar-->
+<div class="navbar">
+    <ul>
+        <li><a class="active" href="#All">Home</a></li>
+        <li><a href="#movies">Movies</a></li>
+        <li><a href="#TopMovies">Top Movies</a></li>
+        <li><a href="#TVShows">TV Series</a></li>
+        <li><a href="#TopTVShows">Top TV Series</a></li>
+        <li>
+
+            <form method="get" action="/search" id="search">
+            <input name="q" type="text" size="40" class="form-control" placeholder="Search..." />
+            </form>
+
+        </li>
+        <li>
+            <div class="card">
+            <div class="card-block">
+                            <select name="findBy" id="findBy" class="selectpicker form-control" data-live-search="true">
+                                <option data-tokens="" value="All" selected>All</option>
+                                <option data-tokens="Type" value="Type">Type</option>
+                                <option data-tokens="Year" value="Year">Year</option>
+                                <option data-tokens="Genre" value="Genre">Genre</option>
+                            </select>
+
+            </div>
+            </div>
+        </li>
+        <li>
+        </li>
+        <li style="float:right"><a href="login.html">SignOut</a></li>
+
+
+    </ul>
+
+</div>
+
+
+<!--All Titles section-->
+
+<div class="svg-wrap">
+    <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+    </svg>
+</div>
+<section class="news"/>
+
+    <div class="container">
+    <h1 id="All">Movies & TV Series</h1>
+    </div>
+
+    <ul class="portfolio-wrap">
+
+        <li class="portfolio-box new success-stories">
+            <a class="expander" href="ajax-article.html" title="">
+                <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+                <figure class="effect-morley">
+                    <figcaption>
+                        <h5>Jab Harry Met Sejal</h5>
+                        <p><a>
+                            <button class="ratestars">
+                                <fieldset class="rating">
+                                    <input type="radio" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio"  name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                </fieldset>
+                            </button>
+                            <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                    </figcaption>
+
+                </figure>
+            </a>
+        </li>
+
+        <li class="portfolio-box new success-stories">
+            <a class="expander" href="ajax-article.html" title="">
+                <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+                <figure class="effect-morley">
+                    <figcaption>
+                        <h5>Jab Harry Met Sejal</h5>
+                        <p><a>
+                            <button class="ratestars">
+                                <fieldset class="rating">
+                                    <input type="radio" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio"  name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                </fieldset>
+                            </button>
+                            <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                    </figcaption>
+
+                </figure>
+            </a>
+        </li>
+        <li class="portfolio-box new success-stories">
+            <a class="expander" href="ajax-article.html" title="">
+                <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+                <figure class="effect-morley">
+                    <figcaption>
+                        <h5>Jab Harry Met Sejal</h5>
+                        <p><a>
+                            <button class="ratestars">
+                                <fieldset class="rating">
+                                    <input type="radio" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio"  name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                </fieldset>
+                            </button>
+                            <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                    </figcaption>
+
+                </figure>
+            </a>
+        </li>
+        <li class="portfolio-box new success-stories">
+            <a class="expander" href="ajax-article.html" title="">
+                <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+                <figure class="effect-morley">
+                    <figcaption>
+                        <h5>Jab Harry Met Sejal</h5>
+                        <p><a>
+                            <button class="ratestars">
+                                <fieldset class="rating">
+                                    <input type="radio" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio"  name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                </fieldset>
+                            </button>
+                            <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                    </figcaption>
+
+                </figure>
+            </a>
+        </li>
+        <li class="portfolio-box new success-stories">
+            <a class="expander" href="ajax-article.html" title="">
+                <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+                <figure class="effect-morley">
+                    <figcaption>
+                        <h5>Jab Harry Met Sejal</h5>
+                        <p><a>
+                            <button class="ratestars">
+                                <fieldset class="rating">
+                                    <input type="radio" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio"  name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                </fieldset>
+                            </button>
+                            <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                    </figcaption>
+
+                </figure>
+            </a>
+        </li>
+        <li class="portfolio-box new success-stories">
+            <a class="expander" href="ajax-article.html" title="">
+                <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+                <figure class="effect-morley">
+                    <figcaption>
+                        <h5>Jab Harry Met Sejal</h5>
+                        <p><a>
+                            <button class="ratestars">
+                                <fieldset class="rating">
+                                    <input type="radio" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio"  name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                </fieldset>
+                            </button>
+                            <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                    </figcaption>
+
+                </figure>
+            </a>
+        </li>
+        <li class="portfolio-box new success-stories">
+            <a class="expander" href="ajax-article.html" title="">
+                <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+                <figure class="effect-morley">
+                    <figcaption>
+                        <h5>Jab Harry Met Sejal</h5>
+                        <p><a>
+                            <button class="ratestars">
+                                <fieldset class="rating">
+                                    <input type="radio" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio"  name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                </fieldset>
+                            </button>
+                            <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                    </figcaption>
+
+                </figure>
+            </a>
+        </li>
+        <li class="portfolio-box new success-stories">
+            <a class="expander" href="ajax-article.html" title="">
+                <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+                <figure class="effect-morley">
+                    <figcaption>
+                        <h5>Jab Harry Met Sejal</h5>
+                        <p><a>
+                            <button class="ratestars">
+                                <fieldset class="rating">
+                                    <input type="radio" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                    <input type="radio" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                    <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                    <input type="radio"  name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                    <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                                </fieldset>
+                            </button>
+                            <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                    </figcaption>
+
+                </figure>
+            </a>
+        </li>
+
+
+    </ul><!-- END .portfolio-wrap -->
+
+<!--Top movies section-->
+    <div class="svg-wrap">
+        <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+        </svg>
+    </div>
+    <section class="news"/>
+
+        <section id="TopMovies">
+        <h1> Top five movies</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th><strong>Rank and Title</strong></th>
+                <th><strong>IMDB Rating</strong></th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Rab Ne Bana di jodi</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Rab Ne Bana di jodi</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Rab Ne Bana di jodi</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Rab Ne Bana di jodi</td>
+                <td>5</td>
+            </tr>
+
+            <tr>
+                <td>Rab Ne Bana di jodi</td>
+                <td>5</td>
+            </tr>
+
+            </tbody>
+        </table>
+
+
+    </section>
+
+<div class="svg-wrap">
+    <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+    </svg>
+</div>
+<section class="news"/>
+
+<!-- ====== Movies ======= -->
+<div class="container">
+    <div class="sixteen columns">
+        <div class="portfolio-filter">
+            <ul class="filter" id="movies">
+                <li>
+                    <h1>Movies</h1>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+
+<div class="navbar">
+    <ul>
+        <li style="float:right">
+            <div class="card1">
+                <div class="card-block">
+                    <select class="selectpicker form-control" data-live-search="true">
+                        <option data-tokens="" value="" selected>IMDB Ratings</option>
+                        <option data-tokens="bank" value="Year">Year</option>
+                        <option data-tokens="bank" value="IMDB Votes">IMDB Votes</option>
+                    </select>
+
+                </div>
+            </div>
+        </li>
+
+        <li style="float:right">
+            <div class="card1">
+                <div class="card-block">
+                    <select  class="selectpicker form-control" data-live-search="true">
+                        <option data-tokens="" value="Oldest to Newest" selected>Oldest to Newest</option>
+                        <option data-tokens="bank" value="Newest to Oldest">Newest to Oldest</option>
+                    </select>
+
+                </div>
+            </div>
+        </li>
+
+
+    </ul>
+
+</div>
+
+
+<div class="clear"></div>
+
+<div class="expander-wrap relative">
+    <div id="expander-wrap1">
+        <p class="cls-btn"><a class="close">X</a></p>
+        <div class="expander-inner"></div>
+    </div>
+</div>
+
+<ul class="portfolio-wrap">
+
+    <li class="portfolio-box new success-stories">
+        <a class="expander" href="ajax-article.html" title="">
+            <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+            <figure class="effect-morley">
+                <figcaption>
+                    <h5>Top 5 tips</h5>
+                    <p><a>
+                        <button class="ratestars">
+                            <fieldset class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                        </button>
+                        <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                </figcaption>
+
+            </figure>
+        </a>
+    </li>
+
+    <li class="portfolio-box new success-stories">
+        <a class="expander" href="ajax-article.html" title="">
+            <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+            <figure class="effect-morley">
+                <figcaption>
+                    <h5>Top 5 tips</h5>
+                    <p><a>
+                        <button class="ratestars">
+                            <fieldset class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                        </button>
+                        <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                </figcaption>
+
+            </figure>
+        </a>
+    </li>
+
+    <li class="portfolio-box new success-stories">
+        <a class="expander" href="ajax-article.html" title="">
+            <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+            <figure class="effect-morley">
+                <figcaption>
+                    <h5>Top 5 tips</h5>
+                    <p><a>
+                        <button class="ratestars">
+                            <fieldset class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                        </button>
+                        <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                </figcaption>
+
+            </figure>
+        </a>
+    </li>
+
+    <li class="portfolio-box new success-stories">
+        <a class="expander" href="ajax-article.html" title="">
+            <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+            <figure class="effect-morley">
+                <figcaption>
+                    <h5>Top 5 tips</h5>
+                    <p><a>
+                        <button class="ratestars">
+                            <fieldset class="rating">
+                                <input type="radio" id="star5" name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio" id="star4" name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" id="star3" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" id="star2" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio" id="star1" name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                        </button>
+                        <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                </figcaption>
+
+            </figure>
+        </a>
+    </li>
+
+</ul>
+
+
+
+<div class="svg-wrap">
+    <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+    </svg>
+</div>
+<section class="news"/>
+
+
+<div class="clear"></div>
+
+<div class="portfolio"></div>
+
+<div class="clear"></div>
+
+<section id="TopTVShows">
+    <h1> Top five TV Series</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th><strong>Rank and Title</strong></th>
+            <th><strong>IMDB Rating</strong></th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>Rab Ne Bana di jodi</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Rab Ne Bana di jodi</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Rab Ne Bana di jodi</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Rab Ne Bana di jodi</td>
+            <td>5</td>
+        </tr>
+
+        <tr>
+            <td>Rab Ne Bana di jodi</td>
+            <td>5</td>
+        </tr>
+
+        </tbody>
+    </table>
+
+
+</section>
+
+
+<div class="svg-wrap">
+    <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+    </svg>
+</div>
+<section class="news"/>
+
+<!--TV Shows-->
+<div class="container">
+    <div class="sixteen columns">
+        <div class="portfolio-filter">
+            <ul class="filter" id="TVShows">
+                <li>
+                    <h1>TV Series</h1>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+</div>
+<div class="navbar">
+    <ul>
+        <li style="float:right">
+            <div class="card1">
+                <div class="card-block">
+                    <select class="selectpicker form-control" data-live-search="true">
+                        <option data-tokens="" value="" selected>IMDB Ratings</option>
+                        <option data-tokens="bank" value="Year">Year</option>
+                        <option data-tokens="bank" value="IMDB Votes">IMDB Votes</option>
+                    </select>
+
+                </div>
+            </div>
+        </li>
+
+        <li style="float:right">
+            <div class="card1">
+                <div class="card-block">
+                    <select class="selectpicker form-control" data-live-search="true">
+                        <option data-tokens="" value="" selected>Oldest to Newest</option>
+                        <option data-tokens="bank" value="bankchooser">Newest to Oldest</option>
+                    </select>
+
+                </div>
+            </div>
+        </li>
+
+
+    </ul>
+
+</div>
+
+
+<ul class="portfolio-wrap" >
+
+    <li class="portfolio-box new success-stories">
+        <a class="expander" href="ajax-article.html" title="">
+            <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+            <figure class="effect-morley">
+                <figcaption>
+                    <h5>Top 5 tips</h5>
+                    <p><a>
+                        <button class="ratestars">
+                            <fieldset class="rating">
+                                <input type="radio"name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio"  name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                        </button>
+                        <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                </figcaption>
+
+            </figure>
+        </a>
+    </li>
+
+    <li class="portfolio-box new success-stories">
+        <a class="expander" href="ajax-article.html" title="">
+            <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+            <figure class="effect-morley">
+                <figcaption>
+                    <h5>Top 5 tips</h5>
+                    <p><a>
+                        <button class="ratestars">
+                            <fieldset class="rating">
+                                <input type="radio"name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio"  name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                        </button>
+                        <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                </figcaption>
+
+            </figure>
+        </a>
+    </li>
+
+    <li class="portfolio-box new success-stories">
+        <a class="expander" href="ajax-article.html" title="">
+            <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+            <figure class="effect-morley">
+                <figcaption>
+                    <h5>Top 5 tips</h5>
+                    <p><a>
+                        <button class="ratestars">
+                            <fieldset class="rating">
+                                <input type="radio"name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio"  name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                        </button>
+                        <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                </figcaption>
+
+            </figure>
+        </a>
+    </li>
+
+    <li class="portfolio-box new success-stories">
+        <a class="expander" href="ajax-article.html" title="">
+            <img src="https://glamospot.com/wp-content/uploads/2017/07/Shahrukh-Khan-and-Anushka-Sharmas-Jab-Harry-Met-Sejal-2017-Trailer-Songs-Posters-Dialogues-Scenes.jpg" alt="" />
+            <figure class="effect-morley">
+                <figcaption>
+                    <h5>Top 5 tips</h5>
+                    <p><a>
+                        <button class="ratestars">
+                            <fieldset class="rating">
+                                <input type="radio"name="rating" value="5" /><label class = "full" for="star5" title="Awesome - 5 stars"></label>
+                                <input type="radio"  name="rating" value="4" /><label class = "full" for="star4" title="Pretty good - 4 stars"></label>
+                                <input type="radio" name="rating" value="3" /><label class = "full" for="star3" title="Meh - 3 stars"></label>
+                                <input type="radio" name="rating" value="2" /><label class = "full" for="star2" title="Kinda bad - 2 stars"></label>
+                                <input type="radio"  name="rating" value="1" /><label class = "full" for="star1" title="Sucks big time - 1 star"></label>
+                            </fieldset>
+                        </button>
+                        <button class="button" data-toggle="modal" data-target="#myModal">More Details</button></a></p>
+
+                </figcaption>
+
+            </figure>
+        </a>
+    </li>
+
+</ul>
+
+</section>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Jab Harry Met Sejal(2017)</h4>
+            </div>
+            <div class="modal-body">
+                <p>Harinder "Harry" Singh Nehra is a tourist guide in Amsterdam. He is a cheap womanizer but a friendly and helpful guide.
+                    After dropping a Gujarati family to the airport, Harry comes across Sejal Zaveri, a member of the same Gujarati family, who has lost her engagement ring. He reluctantly agrees to help her find her ring. He later tells her that he had left his home in Nur Mahal village and came to Canada to become a singer, which did not work out.
+                    Both Harry and Sejal travel to places where he had initially taken the family, in search of the ring. During this, Harry falls in love with Sejal, but does not reveal it to her as she is engaged to someone else. They soon learn that a criminal, Gas, has stolen the ring. They go to Gas to retrieve the ring but Harry gets thrashed by Gas's men. Later, while looking for antiseptics in her bag for Harry, Sejal finds the ring and realizes that the ring was in her bag all along. However, she does not tell Harry about this.
+                    The next day, Harry and Sejal fly to Frankfurt for the wedding of Mayank; Harry's friend. After the wedding, Harry and Sejal get into an argument and she decides to leave for India.
+                    At the airport, Sejal shows Harry the ring and tells him that it was in her bag all along. He asks her to take care and bids her goodbye.
+                    She returns to India and he returns to his work, but begins to miss her and gets depressed. On Mayank's insistence, Harry flies for Mumbai to go to her wedding. On reaching the venue, he learns that her marriage was called off and finds her sitting outside. They eventually share their feelings for each other, and go to Harry's village, Nur Mahal, where he reunites with his family and marries Sejal.</p>
+                <br>
+                <p><strong>Actors: Shahrukh, Anushka</strong></p>
+                <p><strong>Director: Imtiaz Ali</strong></p>
+                <p><strong>IMDB Rating: 3</strong></p>
+                <p><strong>Average Rating: 3.5</strong></p>
+                <br>
+                <label style="text-align: left"><strong>Post your comments:</strong></label>
+                <div class="form-group">
+                    <textarea class="form-control" placeholder="Message"></textarea>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Send</button>
+                </div>
+                <br>
+                <label><strong>User Comments</strong></label>
+                <br>
+                <label><strong>Nadira says:</strong></label>
+                <p> Nice movie. But could have been much better.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

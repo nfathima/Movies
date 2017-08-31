@@ -1,0 +1,32 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+<link rel="stylesheet" type="text/css" href="../css/login.css">
+<div class="container">
+    <div class="col-md-6">
+        <div id="logbox1">
+            <form id="signup" method="post" action="/signup">
+                <h1>Create An Account</h1>
+                <input name="user[name]" type="text" placeholder="What's your username?" autofocus="autofocus" required="required" class="input pass"/>
+                <input name="user[password]" type="password" placeholder="Choose a password" required="required" class="input pass"/>
+                <input name="user[password2]" type="password" placeholder="Confirm password" required="required" class="input pass"/>
+                <input name="user[email]" type="email" placeholder="Email address" required="required" class="input pass"/>
+                <input type="submit" value="Sign up" class="inputButton"/>
+                </form>
+        </div>
+    </div>
+    <!--col-md-6-->
+
+    <div class="col-md-6">
+        <div id="logbox2">
+            <form id="signin" method="post" action="/signin">
+                <h1>Account Login</h1>
+                <input name="user[email]" type="email" placeholder="enter your email" required="required" class="input pass"/>
+                <input name="user[password]" type="password" placeholder="enter your password" required="required" class="input pass"/>
+                <input type="submit" value="Sign in" class="inputButton"/>
+                <div class="text-center">
+                <a href="#" id="">forgot password</a>
+        </div>
+        </form>
+    </div>
+</div>
+</div>

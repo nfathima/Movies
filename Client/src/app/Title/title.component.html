@@ -1,0 +1,311 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
+<!--Navigation bar-->
+<div class="navbar">
+  <ul>
+    <li><a class="active" (click)="home()" >Home</a></li>
+    <li *ngIf="access===true"><a [routerLink]="['/modify-Title']" >Edit Titles</a></li>
+    <li style="float:right"><a [routerLink]="['/login']">SignOut</a></li>
+  </ul>
+
+</div>
+
+
+<!--All Titles section-->
+
+<hr>
+<div *ngIf="display=='home' ||display=='freesearch' ||display=='votes' ||display=='ratings' ||display=='year' ||display=='ftype' ||display=='fyear' ||display=='fgenre' ">
+  <div class="table">
+    <tr>
+      <td><button type="button" class="btn btn-outline-success" (click)="topMovies()">Top Rated Movies</button></td>
+      <td><button type="button" class="btn btn-outline-success" (click)="topTV()">Top Rated TV Series</button></td>
+
+    </tr>
+  </div>
+
+  <div class="table">
+  <tr>
+    <td><input type="text" #search="ngModel" [(ngModel)]="freesearch" (keypress)="freesearch1()" name="search"
+               id="search" placeholder="Search for"></td>
+    <td>Sort by:</td>
+    <td><select #sortingclass class="selectpicker" (change)="sortfunction(sortingclass.value)">
+      <option>Select One</option>
+      <option value="ratings">IMDB Ratings</option>
+      <option value="votes">IMDB Votes</option>
+      <option value="year">Year</option>
+    </select></td>
+    <td></td>
+    <td>
+      Filter By:
+    </td>
+    <td>
+      <input type="text"  placeholder="Search for" #filter>
+    </td>
+    <td>
+      <select class="selectpicker" (change)="filterfunction(filter.value,filterselect.value)" #filterselect>
+        <option>Select One</option>
+        <option value="type">Type</option>
+        <option value="year">Year</option>
+        <option value="genre">Genre</option>
+      </select>
+    </td>
+
+  </tr>
+</div>
+</div>
+
+<div *ngIf="display=='home'">
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Genre</th>
+    <th>Year</th>
+    <th>IMDB Rating</th>
+    <th>IMDB Votes</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of titles">
+    <td><a [routerLink]="['/Title', t.titleId]">{{t.name}}</a></td>
+    <td>{{t.type}}</td>
+    <td>{{t.genre}}</td>
+    <td>{{t.year}}</td>
+    <td>{{t.imdbRatings}}</td>
+    <td>{{t.imdbVotes}}</td>
+  </tr>
+  </tbody>
+</table>
+</div>
+
+<!--Free Search through Title database-->
+
+<div *ngIf="this.display=='freesearch'">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of freeSearchRes">
+      <td><a [routerLink]="['/Title', t.titleId]">{{t.name}}</a></td>
+      <td>{{t.type}}</td>
+      <td>{{t.genre}}</td>
+      <td>{{t.year}}</td>
+      <td>{{t.imdbRatings}}</td>
+      <td>{{t.imdbVotes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--Sort By IMDB Votes-->
+
+<div *ngIf="display=='votes'">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of votesRes">
+      <td><a [routerLink]="['/Title', t.titleId]">{{t.name}}</a></td>
+      <td>{{t.type}}</td>
+      <td>{{t.genre}}</td>
+      <td>{{t.year}}</td>
+      <td>{{t.imdbRatings}}</td>
+      <td>{{t.imdbVotes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="display=='ratings'">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of ratingsRes">
+      <td><a [routerLink]="['/Title', t.titleId]">{{t.name}}</a></td>
+      <td>{{t.type}}</td>
+      <td>{{t.genre}}</td>
+      <td>{{t.year}}</td>
+      <td>{{t.imdbRatings}}</td>
+      <td>{{t.imdbVotes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="display=='year'">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of yearRes">
+      <td><a [routerLink]="['/Title', t.titleId]">{{t.name}}</a></td>
+      <td>{{t.type}}</td>
+      <td>{{t.genre}}</td>
+      <td>{{t.year}}</td>
+      <td>{{t.imdbRatings}}</td>
+      <td>{{t.imdbVotes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="display=='ftype'">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of ftypeRes">
+      <td><a [routerLink]="['/Title', t.titleId]">{{t.name}}</a></td>
+      <td>{{t.type}}</td>
+      <td>{{t.genre}}</td>
+      <td>{{t.year}}</td>
+      <td>{{t.imdbRatings}}</td>
+      <td>{{t.imdbVotes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="display=='fyear'">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of fyearRes">
+      <td><a [routerLink]="['/Title', t.titleId]">{{t.name}}</a></td>
+      <td>{{t.type}}</td>
+      <td>{{t.genre}}</td>
+      <td>{{t.year}}</td>
+      <td>{{t.imdbRatings}}</td>
+      <td>{{t.imdbVotes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="display=='fgenre'">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of fgenreRes">
+      <td><a [routerLink]="['/Title', t.titleId]">{{t.name}}</a></td>
+      <td>{{t.type}}</td>
+      <td>{{t.genre}}</td>
+      <td>{{t.year}}</td>
+      <td>{{t.imdbRatings}}</td>
+      <td>{{t.imdbVotes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--Top Movies-->
+<div *ngIf="display=='topm'">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of topMoviesRes">
+      <td><a [routerLink]="['/Title', t.titleId]">{{t.name}}</a></td>
+      <td>{{t.type}}</td>
+      <td>{{t.genre}}</td>
+      <td>{{t.year}}</td>
+      <td>{{t.imdbRatings}}</td>
+      <td>{{t.imdbVotes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--Top Results-->
+<div *ngIf="display=='topt'">
+  <table class="table">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Genre</th>
+      <th>Year</th>
+      <th>IMDB Rating</th>
+      <th>IMDB Votes</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let t of topTVRes">
+      <td><a [routerLink]="['/Title', t.titleId]">{{t.name}}</a></td>
+      <td>{{t.type}}</td>
+      <td>{{t.genre}}</td>
+      <td>{{t.year}}</td>
+      <td>{{t.imdbRatings}}</td>
+      <td>{{t.imdbVotes}}</td>
+    </tr>
+    </tbody>
+  </table>
+</div>

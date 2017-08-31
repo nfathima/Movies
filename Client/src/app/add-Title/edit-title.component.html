@@ -1,0 +1,285 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+<script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" defer></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<div class="navbar">
+  <ul>
+    <li><a [routerLink]="['/Title']" class="active">Home</a></li>
+    <li style="float:right"><a [routerLink]="['/login']">SignOut</a></li>
+  </ul>
+
+</div>
+<body>
+
+<!--Navigation bar-->
+
+<button type="button" class="btn btn-outline-success" (click)="add()">Add Title</button>
+<button type="button" class="btn btn-outline-success" (click)="update()" >Update Title</button>
+<button type="button" class="btn btn-outline-success" (click)="delete()">Delete Title</button>
+
+<!--Add Title-->
+<div  *ngIf="check==='add'">
+<div class="container">
+  <h1>Add Title</h1>
+</div>
+<form name="title-addform" (submit)="addTitle()" #userForm="ngForm">
+  <div class="form-group">
+    <label for="name">Title Name</label>
+    <input type="text" required #name="ngModel" [(ngModel)]="title.name" name="name" class="form-control" id="name" placeholder="Enter Title Name">
+    <div *ngIf="name.errors && (name.dirty || name.touched)" class="error">
+      <p [hidden]="!name.errors.required">Name is required</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="imdbRatings">Title imdbRatings</label>
+    <input type="number" min="1" max="5" required #imdbRatings="ngModel" [(ngModel)]="title.imdbRatings" name="imdbRatings" class="form-control" id="imdbRatings" placeholder="Enter Title imdbRatings">
+    <div *ngIf="imdbRatings.errors && (imdbRatings.dirty || imdbRatings.touched)" class="error">
+      <p [hidden]="!imdbRatings.errors.required">imdbRatings is required</p>
+    </div>
+    <div *ngIf="(imdbRatings.dirty || imdbRatings.touched) && (imdbRatings.value<1 || imdbRatings.value>10)" class="error">
+      <p>Ratings should be between 1 and 10</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="year">Title year</label>
+
+    <input type="number" min="1900" max="2099" step="1" required #year="ngModel" [(ngModel)]="title.year" name="year"
+           class="form-control" id="year" placeholder="Enter Title year" >
+    <div *ngIf="year.errors && (year.dirty || year.touched)" class="error">
+      <p [hidden]="!year.errors.required">year is required</p>
+    </div>
+    <div *ngIf="(year.dirty || year.touched) && (year.value<1900 || year.value>2099)" class="error">
+      <p>year should be between 1900 and 2099</p>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label for="genre">Title genre</label>
+    <input type="text" #genre="ngModel" required [(ngModel)]="title.genre" name="genre"
+           class="form-control" id="genre" placeholder="Enter Title genre">
+    <div *ngIf="genre.errors && (genre.dirty || genre.touched)" class="error">
+      <p [hidden]="!genre.errors.required">genre is required</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="imdbVotes">Title imdbVotes</label>
+    <input type="number"  #imdbVotes="ngModel" required [(ngModel)]="title.imdbVotes" name="imdbVotes"
+           class="form-control" id="imdbVotes" placeholder="Enter Title imdbVotes">
+    <div *ngIf="imdbVotes.errors && (imdbVotes.dirty || imdbVotes.touched)" class="error">
+      <p [hidden]="!imdbVotes.errors.required">imdbVotes is required</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="director">Title director</label>
+    <input type="text" #director="ngModel" required [(ngModel)]="title.director" name="director"
+           class="form-control" id="director" placeholder="Enter Title director">
+    <div *ngIf="director.errors && (director.dirty || director.touched)" class="error">
+      <p [hidden]="!director.errors.required">director is required</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="actors">Title actors</label>
+    <input type="text" #actors="ngModel" required [(ngModel)]="title.actors" name="actors"
+           class="form-control" id="actors" placeholder="Enter Title actors">
+    <div *ngIf="actors.errors && (actors.dirty || actors.touched)" class="error">
+      <p [hidden]="!actors.errors.required">actors is required</p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="plot">Title plot</label>
+
+    <textarea rows="10" type="text" #plot="ngModel" required [(ngModel)]="title.plot" name="plot"
+              class="form-control" id="plot" placeholder="Enter Title plot"></textarea>
+    <div *ngIf="plot.errors && (plot.dirty || plot.touched)" class="error">
+      <p [hidden]="!plot.errors.required">plot is required</p>
+    </div>
+
+  </div>
+
+  <div class="form-group">
+    <label for="type">Type of the Title</label>
+    <select id="type" #type="ngModel" required class="form-control" [(ngModel)]="title.type" name="type">
+      <option value="tvseries">TVSeries</option>
+      <option value="movies">Movies</option>
+    </select>
+    <div *ngIf="type.errors && (type.dirty || type.touched)" class="error">
+      <p [hidden]="!type.errors.required">Type is required</p>
+    </div>
+  </div>
+
+  <button type="submit" class="btn btn-outline-success" [disabled]="!userForm.valid">Add Title</button>
+
+  <div *ngIf="success==='added'">
+    <div class="card">
+      <div class="card-block">
+      Title Added Successfully. Click on 'Home' to view it.
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="success==='failedadd'">
+    <div class="card">
+      <div class="card-block">
+        Failed to add Title. Try again.
+      </div>
+    </div>
+  </div>
+</form>
+</div>
+
+<!--Delete Title-->
+<div  *ngIf="check==='delete'">
+  <div class="container">
+    <h1>Delete Title</h1>
+  </div>
+  <form name="title-deleteform" (submit)="deleteTitle()" #userForm="ngForm">
+    <div class="form-group">
+      <label for="titleId">Title Id</label>
+      <input type="text" required #titleId="ngModel" [(ngModel)]="title.titleId" name="titleId" class="form-control" id="titleId" placeholder="Enter Title Id">
+      <div *ngIf="titleId.errors && (titleId.dirty || titleId.touched)" class="error">
+        <p [hidden]="!titleId.errors.required">Title Id is required</p>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-success" [disabled]="!userForm.valid">Delete Title</button>
+  </form>
+
+  <div *ngIf="success==='deleted'">
+    <div class="card">
+      <div class="card-block">
+      Title no longer exists in database.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!--Update Title-->
+<div  *ngIf="check==='update'">
+  <div class="container">
+    <h1>Update Title</h1>
+  </div>
+  <form name="title-updateform" (submit)="getOneTitle();getdet();" #userForm="ngForm">
+    <div class="form-group">
+      <label for="name">Title Id</label>
+      <input type="text" required #titleIdup="ngModel" [(ngModel)]="title.titleId" name="titleIdup" class="form-control" id="titleIdup" placeholder="Enter Title Id">
+      <div *ngIf="titleIdup.errors && (titleIdup.dirty || titleIdup.touched)" class="error">
+        <p [hidden]="!titleIdup.errors.required">Title Id is required</p>
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-outline-success" [disabled]="!userForm.valid">Display Details</button>
+
+    <div *ngIf="success==='failedgettitle'">
+      <div class="card">
+        <div class="card-block">
+          This Title Id does not exist in the database.
+        </div>
+      </div>
+    </div>
+
+  </form>
+
+  <div *ngIf="checkdet=='getdet' && success=='gottitle'">
+  <form name="title-updateform1" (submit)="getOneTitle();updateTitle();" #userForm1="ngForm">
+    <div class="form-group">
+      <label for="nameup">Title Name</label>
+
+      <input type="text" required #nameup="ngModel" [(ngModel)]="this.title.name" name="nameup" class="form-control" id="nameup">
+    </div>
+
+    <div class="form-group">
+      <label for="imdbRatingsup">Title imdbRatings</label>
+      <input type="number" min="1" max="5" required #imdbRatingsup="ngModel" [(ngModel)]="title.imdbRatings" name="imdbRatingsup" class="form-control" id="imdbRatingsup" value="this.title.imdbRatings">
+      <div *ngIf="(imdbRatingsup.dirty) && (imdbRatingsup.value<1 || imdbRatingsup.value>5)" class="error">
+        <p>Ratings should be between 1 and 5</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="yearup">Title year</label>
+
+      <input type="number" min="1900" max="2099" step="1" required #yearup="ngModel" [(ngModel)]="title.year" name="yearup"
+             class="form-control" id="yearup" >
+      <div *ngIf="(yearup.dirty) && (yearup.value<1900 || yearup.value>2099)" class="error">
+        <p>year should be between 1900 and 2099</p>
+      </div>
+
+    </div>
+
+    <div class="form-group">
+      <label for="genreup">Title genre</label>
+      <input type="text" #genreup="ngModel" required [(ngModel)]="title.genre" name="genreup"
+             class="form-control" id="genreup" placeholder="Enter Title genre">
+    </div>
+
+    <div class="form-group">
+      <label for="imdbVotesup">Title imdbVotes</label>
+      <input type="number"  #imdbVotesup="ngModel" required [(ngModel)]="title.imdbVotes" name="imdbVotesup"
+             class="form-control" id="imdbVotesup" placeholder="Enter Title imdbVotes">
+      <div *ngIf="(imdbRatingsup.dirty && imdbVotes.errors)" class="error">
+        <p>Enter a numeric value</p>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label for="directorup">Title director</label>
+      <input type="text" #directorup="ngModel" required [(ngModel)]="title.director" name="directorup"
+             class="form-control" id="directorup" placeholder="Enter Title director">
+          </div>
+
+    <div class="form-group">
+      <label for="actorsup">Title actors</label>
+      <input type="text" #actorsup="ngModel" required [(ngModel)]="title.actors" name="actorsup"
+             class="form-control" id="actorsup" placeholder="Enter Title actors">
+          </div>
+
+    <div class="form-group">
+      <label for="plotup">Title plot</label>
+
+      <textarea rows="10" type="text" #plotup="ngModel" required [(ngModel)]="title.plot" name="plotup"
+                class="form-control" id="plotup" placeholder="Enter Title plot"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="typeup">Type of the movie</label>
+      <select id="typeup" #typeup="ngModel" required class="form-control" [(ngModel)]="title.type" name="typeup">
+        <option value="tvseries">TVSeries</option>
+        <option value="movies">Movies</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-outline-success" [disabled]="!userForm1.valid">Update Title</button>
+    <div *ngIf="success==='updated'">
+      <div class="card">
+        <div class="card-block">
+          Title updated successfully.
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="success==='failedupdate'">
+      <div class="card">
+        <div class="card-block">
+          Could not update title. Try again.
+        </div>
+      </div>
+    </div>
+
+
+  </form>
+  </div>
+</div>
+
+</body>

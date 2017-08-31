@@ -1,0 +1,121 @@
+<head>
+    <title>NetFlix</title>
+</head>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+<link rel="stylesheet" type="text/css" href="../css/movieposter.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" defer></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous" defer></script>
+<script src="../JavaScript/movieposter.js" defer></script>
+
+<div class="navbar">
+    <ul>
+        <li><a class="active" href="movie%20poster.html">Home</a></li>
+        <li><a href="#AddTitle">Add Title</a></li>
+        <li><a href="#UpdateTitle">Update Title</a></li>
+        <li><a href="#DeleteTitle">Delete Title</a></li>
+        <li style="float:right"><a href="login.html">SignOut</a></li>
+    </ul>
+
+</div>
+
+
+
+
+<div class="svg-wrap">
+    <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+    </svg>
+</div>
+<section class="news"/>
+
+<div class="container">
+    <h1 id="AddTitle">Add Title</h1>
+</div>
+
+<div class="svg-wrap">
+    <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+    </svg>
+</div>
+<section class="news"/>
+
+<section class="TitleEdit">
+    <div class="container">
+            <div id="logbox1">
+                <form id="addTitleform" method="post">
+                    <input name="Title" type="text" placeholder="Title" autofocus="autofocus" required="required" class="input pass"/>
+                    <input name="Type" type="text" placeholder="Type" required="required" class="input pass"/>
+                    <input name="Year" type="text" placeholder="Year" required="required" class="input pass"/>
+                    <input name="Actors" type="text" placeholder="Actors" required="required" class="input pass"/>
+                    <input name="Director" type="text" placeholder="Director" required="required" class="input pass"/>
+                    <div class="form-group">
+                        <textarea class="form-control" type="textarea" id="Plotadd" placeholder="Plot" rows="10"></textarea>
+                    </div>
+                    <input type="submit" value="Add Title" class="inputButton"/>
+                </form>
+            </div>
+    </div>
+
+</section>
+</div>
+<div class="svg-wrap">
+    <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+    </svg>
+</div>
+<section class="news"/>
+
+<div class="container">
+    <h1 id="UpdateTitle">Update Title</h1>
+</div>
+
+<div class="svg-wrap">
+    <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+    </svg>
+</div>
+<section class="news"/>
+
+<section class="TitleEdit">
+    <div class="container">
+        <div id="logbox2">
+            <form id="updateTitleform" method="post" action="/signup">
+                <input name="Title" type="text" placeholder="Title" autofocus="autofocus" required="required" class="input pass"/>
+                <input name="Type" type="text" placeholder="Type" required="required" class="input pass"/>
+                <input name="Year" type="text" placeholder="Year" required="required" class="input pass"/>
+                <input name="Actors" type="text" placeholder="Actors" required="required" class="input pass"/>
+                <input name="Director" type="text" placeholder="Director" required="required" class="input pass"/>
+                <div class="form-group">
+                    <textarea class="form-control" type="textarea" id="Plotupdate" placeholder="Plot" rows="10"></textarea>
+                </div>
+                <input type="submit" value="Update Title" class="inputButton"/>
+            </form>
+        </div>
+    </div>
+
+</section>
+
+<div class="svg-wrap">
+    <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+    </svg>
+</div>
+<section class="news"/>
+
+<div class="container">
+    <h1 id="DeleteTitle">Delete Title</h1>
+</div>
+
+<div class="svg-wrap">
+    <svg viewBox="0 0 400 20" xmlns="http://www.w3.org/2000/svg"><line x1="5" y1="15" x2="708" y2="15" id="svg_3"/>
+    </svg>
+</div>
+<section class="news"/>
+
+<section class="TitleEdit">
+    <div class="container">
+        <div id="logbox3">
+            <form id="deleteTitleform" method="post">
+                <input name="Title" type="text" placeholder="Title Id" autofocus="autofocus" required="required" class="input pass"/>
+                <input type="submit" value="Delete Title" class="inputButton"/>
+            </form>
+        </div>
+    </div>
+
+</section>
